@@ -226,12 +226,6 @@ npm run dev
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## ⭐ Acknowledgments
-
-- **yt-dlp** team for exceptional YouTube downloading capabilities
-- **FFmpeg** for powerful video processing
-- **YouTube** for the platform and video streams
-- **Chrome Extensions** community for development resources
 
 ## 📞 Support
 
