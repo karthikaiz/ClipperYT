@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClipperYT</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1 class="app-title">ClipperYT</h1>
+      <div class="version">v1.0.0</div>
+    </div>
+
+    <!-- Plugin Description -->
+    <div class="description-section">
+      <h2 class="section-title">YouTube Video Clipper</h2>
+      <p class="description-text">Create high-quality clips from any YouTube video with precision timing controls.</p>
+    </div>
+
+    <!-- How to Use Section -->
+    <div class="usage-section">
+      <h2 class="section-title">How to Use</h2>
+      <ol class="usage-steps">
+        <li>Go to any YouTube video</li>
+        <li>Click the <strong>Clip</strong> button in the video controls</li>
+        <li>Set your start and end times</li>
+        <li>Choose quality and create your clip</li>
+      </ol>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+      <h2 class="section-title">Features</h2>
+      <ul class="features-list">
+        <li class="feature-item">
+          <span class="feature-icon">⏱️</span>
+          <span class="feature-text">Precise time-based clipping</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">🎬</span>
+          <span class="feature-text">Maintains original aspect ratio</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">🔥</span>
+          <span class="feature-text">High-quality downloads up to 1080p</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">📱</span>
+          <span class="feature-text">MP4 format for all devices</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <span class="feature-text">Fast processing with yt-dlp</span>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon">🎵</span>
+          <span class="feature-text">Perfect audio sync</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Status Section -->
+    <div class="status-section">
+      <h2 class="section-title">Status</h2>
+      <div class="status-indicator" id="status-indicator">
+        <div class="status-dot ready" id="status-dot"></div>
+        <span id="status-text">Ready to clip</span>
+      </div>
+    </div>
+
+    <!-- Action Button -->
+    <div class="action-buttons">
+      <button class="primary-btn" id="open-youtube-btn">Open YouTube</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-section">
+      <p class="footer-text">Navigate to a YouTube video to start clipping</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html> 

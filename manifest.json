@@ -1,0 +1,72 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Shorts Clipper",
+  "version": "1.0.0",
+  "description": "Create video clips from YouTube videos with custom start and end times",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "scripting"
+  ],
+  
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "https://*.googlevideo.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "YouTube Shorts Clipper",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "processor/*.js",
+        "assets/fonts/*",
+        "assets/icons/*",
+        "lib/ffmpeg.min.js",
+        "lib/ffmpeg-core.js",
+        "lib/ffmpeg-core.wasm",
+        "lib/ffmpeg-core-mt.js",
+        "lib/ffmpeg-core-mt.wasm"
+      ],
+      "matches": ["https://www.youtube.com/*", "https://*.youtube.com/*"]
+    }
+  ]
+} 

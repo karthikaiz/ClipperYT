@@ -1,0 +1,117 @@
+{
+  "name": "youtube-shorts-clipper",
+  "version": "1.0.0",
+  "description": "Phase 1: Create video clips from YouTube videos with custom start and end times, maintaining original quality and 16:9 aspect ratio",
+  "main": "background.js",
+  "scripts": {
+    "build": "npm run copy-assets && npm run download-ffmpeg",
+    "copy-assets": "echo 'Copying extension assets...'",
+    "download-ffmpeg": "node scripts/download-ffmpeg.js",
+    "test": "echo 'Running tests...' && npm run lint",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "dev": "npm run build && echo 'Load extension in Chrome at chrome://extensions/'",
+    "clean": "rm -rf lib/*.wasm lib/*.js",
+    "package": "npm run build && zip -r youtube-shorts-clipper.zip . -x 'node_modules/*' '.git/*' '*.md' 'scripts/*' 'package*.json'",
+    "backend": "cd backend && npm start",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:install": "cd backend && npm install",
+    "backend:build": "cd backend && npm run build",
+    "backend:check": "cd backend && npm run check",
+    "setup": "npm install && npm run backend:install && npm run build && npm run backend:build && npm run backend:check",
+    "start": "npm run backend"
+  },
+  "keywords": [
+    "chrome-extension",
+    "youtube",
+    "video-clipping",
+    "time-based-clipping",
+    "mp4-download",
+    "content-creation",
+    "phase-1",
+    "simple-clipping",
+    "video-editing"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/youtube-shorts-clipper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/youtube-shorts-clipper/issues"
+  },
+  "homepage": "https://github.com/your-username/youtube-shorts-clipper#readme",
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-promise": "^6.1.1"
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.12.6",
+    "@ffmpeg/util": "^0.12.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 88"
+  ],
+  "extensionInfo": {
+    "manifestVersion": 3,
+    "targetBrowsers": ["chrome", "edge"],
+    "minChromeVersion": "88.0.0",
+    "permissions": [
+      "activeTab",
+      "storage", 
+      "downloads",
+      "scripting"
+    ],
+    "hostPermissions": [
+      "https://*.youtube.com/*",
+      "https://*.googlevideo.com/*"
+    ]
+  },
+  "build": {
+    "outputDir": "dist",
+    "assets": [
+      "manifest.json",
+      "background.js",
+      "content/",
+      "popup/",
+      "processor/",
+      "assets/",
+      "lib/"
+    ],
+    "excludeFromPackage": [
+      "node_modules",
+      ".git",
+      "*.md",
+      "scripts",
+      "package*.json",
+      ".eslintrc*",
+      "test"
+    ]
+  },
+  "webstore": {
+    "category": "Productivity",
+    "screenshots": [
+      "assets/screenshots/main-interface.png",
+      "assets/screenshots/processing.png", 
+      "assets/screenshots/settings.png"
+    ],
+    "pricing": "free",
+    "languages": ["en"],
+    "targetAudience": "content-creators",
+    "phase": "1",
+    "features": [
+      "Time-based video clipping (10 seconds to 60 minutes)",
+      "Original 16:9 aspect ratio maintained", 
+      "High-quality MP4 downloads",
+      "Simple, intuitive interface"
+    ]
+  }
+} 
